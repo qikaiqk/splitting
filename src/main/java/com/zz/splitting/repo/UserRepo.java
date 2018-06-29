@@ -7,5 +7,8 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 
     User findByAccount(String account);
 
+    @Override
+    User getOne(Integer id);
+
     User save(User user);
 }

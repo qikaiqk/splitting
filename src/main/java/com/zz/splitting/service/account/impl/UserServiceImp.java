@@ -19,6 +19,11 @@ public class UserServiceImp implements IUserService {
     }
 
     @Override
+    public User findUserById(Integer id) {
+        return userRepo.getOne(id);
+    }
+
+    @Override
     public User createNewUser(User user) throws Exception {
 
         try {

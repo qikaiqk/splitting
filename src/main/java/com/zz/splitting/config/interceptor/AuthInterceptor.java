@@ -2,7 +2,7 @@ package com.zz.splitting.config.interceptor;
 
 import com.zz.splitting.entity.account.User;
 import com.zz.splitting.service.account.IUserService;
-import com.zz.splitting.util.CookieHolder;
+import com.zz.splitting.service.redis.IRedisService;
 import com.zz.splitting.util.UserHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,6 +19,9 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private IRedisService redisService;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
@@ -26,7 +29,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
         String cookie = request.getHeader(AUTH_HEADER);
 
         // 换取 user
-        String userAccount = CookieHolder.findAccountByCookie(cookie);
+        String userAccount = redisService.findAccountByCookie(cookie);
         User currentUser = userService.findUserByAccount(userAccount);
 
         // ThreadLocal 放入 user

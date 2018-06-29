@@ -8,6 +8,7 @@ import com.zz.splitting.model.JsonResult;
 import com.zz.splitting.model.account.UserInfo;
 import com.zz.splitting.service.account.IAccountService;
 import com.zz.splitting.service.account.IUserService;
+import com.zz.splitting.service.redis.IRedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,8 @@ public class AccountServiceImp implements IAccountService {
     @Autowired
     private IUserService userService;
 
-
+    @Autowired
+    private IRedisService redisService;
 
     @Override
     public JsonResult checkExist(String account) {
@@ -88,6 +90,7 @@ public class AccountServiceImp implements IAccountService {
 
         // 验证密码
         if (userService.checkPwd(user)) {
+            redisService.storeAccountCookie("fooToken", user.getAccount());
             return JsonResult
                     .builder()
                     .code(CommonCode.SUCC)

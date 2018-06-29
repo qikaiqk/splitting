@@ -6,6 +6,8 @@ public interface IUserService {
 
     User findUserByAccount(String account);
 
+    User findUserById(Integer id);
+
     User createNewUser(User user) throws Exception;
 
     Boolean checkPwd(User user);
