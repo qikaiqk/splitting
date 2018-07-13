@@ -39,10 +39,10 @@ public class User {
     @Column(name = "avatar")
     private String avatar;
 
-    @Column(name = "createAt")
-    private Timestamp createAt;
+    @Column(name = "created_at")
+    private Timestamp createdAt;
 
-    @Column(name = "updateAt")
-    private Timestamp updateAt;
+    @Column(name = "updated_at")
+    private Timestamp updatedAt;
 
 }

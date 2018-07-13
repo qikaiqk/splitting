@@ -2,12 +2,12 @@ package com.zz.splitting.service.account.impl;
 
 import com.zz.splitting.entity.account.User;
 import com.zz.splitting.exception.account.DBException;
-import com.zz.splitting.repo.UserRepo;
+import com.zz.splitting.repo.account.UserRepo;
 import com.zz.splitting.service.account.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class UserServiceImp implements IUserService {
 
     @Autowired

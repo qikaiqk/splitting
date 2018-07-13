@@ -1,4 +1,4 @@
-package com.zz.splitting.exception.method.enumException;
+package com.zz.splitting.exception._method.enumException;
 
 public class Drive {
 

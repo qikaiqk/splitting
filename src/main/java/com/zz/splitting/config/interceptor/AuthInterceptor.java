@@ -28,7 +28,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
         // 获取 cookie
         String cookie = request.getHeader(AUTH_HEADER);
 
-        // 换取 user
+        // 换取 user，检查cookie的有效性？
         String userAccount = redisService.findAccountByCookie(cookie);
         User currentUser = userService.findUserByAccount(userAccount);
 
