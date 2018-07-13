@@ -1,15 +1,11 @@
-package com.zz.splitting.exception.method.enumException;
+package com.zz.splitting.exception._method.enumException;
 
-
-public enum AccountExceptionEnum {
-
-    ACCOUNT_ALREADY_EXIST(301, "账户已存在"),
-    ACCOUNT_WRONG_INFO(302, "账户信息有误");
+public class AccountException extends Exception {
 
     private Integer code;
     private String msg;
 
-    AccountExceptionEnum(Integer code, String msg) {
+    AccountException(Integer code, String msg) {
         this.code = code;
         this.msg = msg;
     }
@@ -30,5 +26,3 @@ public enum AccountExceptionEnum {
         this.msg = msg;
     }
 }
-
-

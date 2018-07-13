@@ -1,4 +1,4 @@
-package com.zz.splitting.repo;
+package com.zz.splitting.repo.account;
 
 import com.zz.splitting.entity.account.User;
 import org.springframework.data.jpa.repository.JpaRepository;
