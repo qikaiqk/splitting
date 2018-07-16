@@ -1,4 +1,5 @@
 /target/
+/_notes
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
